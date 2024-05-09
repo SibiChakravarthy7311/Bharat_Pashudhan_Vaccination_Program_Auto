@@ -11,7 +11,9 @@ VACCINATION_POSITION = (75, 498)
 WITHOUT_CAMPAIGN_POSITION = (371, 298)
 BATCH_NUMBER_POSITION = (290, 505)
 
+FIREFOX_TROUBLESHOOT_POSITION = (815, 455)
+
 mouse = pynput.mouse.Controller()
 # time.sleep(2)
-mouse.position = BATCH_NUMBER_POSITION
+mouse.position = FIREFOX_TROUBLESHOOT_POSITION
 print(mouse.position)

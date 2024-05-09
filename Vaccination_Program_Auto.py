@@ -27,8 +27,15 @@ def isConnected(host='https://bharatpashudhan.ndlm.co.in/auth/login'):
 # Open the Bharat Pashudhan web application
 def openWebApp():
     url = "https://bharatpashudhan.ndlm.co.in/auth/login"
-    firefox_path = "C:/Program Files/Mozilla Firefox/firefox.exe %s"
-    webbrowser.get(firefox_path).open(url)
+    # firefox_path = "C:/Program Files/Mozilla Firefox/firefox.exe %s"
+    # browser = webbrowser.get(firefox_path)
+
+    url_short = "bharatpashudhan.ndlm.co.in/auth/login"
+    # chrome_path = "C:/Program Files (x86)/Google/Chrome/Application/chrome.exe %s"
+    # webbrowser.get(chrome_path).open_new_tab(url_short)
+
+    webbrowser.open(url)
+    print("Opened browser")
     time.sleep(5)
 
 
@@ -43,7 +50,7 @@ def checkCaps(i):
 
 # Close the browser along with the webapp
 def closeWebApp():
-    os.system("taskkill /f /im firefox.exe")
+    os.system("taskkill /f /im chrome.exe")
 
 
 # Close the browser along with the webapp and reopen it
@@ -92,6 +99,7 @@ def login(username, password, USERNAME_POSITION, PASSWORD_POSITION, LOGIN_POSITI
 # Retrieve the value entered in an input field at a given position
 def getEnteredValueAt(mouse, keyboard, POSITION):
     mouse.position = POSITION
+    time.sleep(1)
     mouse.click(Button.left)
     mouse.click(Button.left)
     with keyboard.pressed(Key.ctrl.value):
@@ -134,6 +142,7 @@ openWebApp()
 # Initialize the program loop
 loginAttemptCounter = 5
 while dataIndex < len(data):
+    print("Reached Here")
     if not isConnected():
         time.sleep(30)
         continue
